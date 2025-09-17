@@ -8,7 +8,10 @@ def quiz(test):
     days_before = int(input("How many days before the test do you want to start studying?"))
     question_answers["days"] = days_before
     day = input("Do you want to study the day before the test? yes/no")
-    question_answers["day_before"] = day
+    if day == "yes":
+        question_answers["day_before"] = 0
+    else:
+        question_answers["day_before"] = 1
     return question_answers
 
 
