@@ -11,9 +11,27 @@ def get_tests():
         tests_dict[day] = subject
     return tests_dict
 
-def get_school_hours(days):
-    for i in range(len(days)):
-        class_start_hour = input(f'If you have a class in {days[1]}, Enter the starting hour: ')
+
+def get_learning_hours():
+    list_hours=[]
+    for i in range(5):
+        mini_list=[]
+        start=input(f"enter start hour of learning day {i+1}:")
+        end=input(f"enter ending hour of learning day {i+1}:")
+        while not not_earlier(start,end):
+            end = input(f"end hour cant be earlier than start hour. enter ending hour of learning day {i + 1}:")
+        mini_list.append(start)
+        mini_list.append(end)
+        list_hours.append(mini_list)
+    print(list_hours)
 
 
+def not_earlier(start,end):
+    return start<end
 
+
+def main():
+    get_learning_hours()
+
+if __name__=="__main__":
+    main()
